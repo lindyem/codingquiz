@@ -6,6 +6,7 @@ var question = document.querySelector("#question");
 var questionTitle = document.querySelector("#questionTitle");
 var questionAnswers = document.querySelector("#questionAnswers");
 var questionStatus = document.querySelector("#questionStatus");
+var score = document.querySelector("#score");
 var countdown = 75;
 var questionIndex = 0;
 var points = 0;
@@ -98,6 +99,7 @@ function checkAnswer(event) {
     end.style.display = "block";
     question.style.display = "none";
     clearInterval(countdownInterval);
+    score.innerHTML = points;
   }
 }
 
