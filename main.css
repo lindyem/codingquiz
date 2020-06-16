@@ -8,9 +8,13 @@ header{
     margin-right: 50px;
 }
 
-#startButton{
+button {
     background-color: purple;
     color: white;
     border-radius: 5px;
     font-size: 1.5em;
+}
+
+ul {
+    list-style: none;
 }
