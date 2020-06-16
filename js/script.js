@@ -12,6 +12,8 @@ var formSubmit = document.querySelector("#formSubmit");
 var highscores = document.querySelector("#highscores");
 var view = document.querySelector("#view");
 var highscoresList = document.querySelector("#highscoresList");
+var clear = document.querySelector("#clear");
+var back = document.querySelector("#back");
 var countdown = 75;
 var questionIndex = 0;
 var countdownInterval;
@@ -124,13 +126,24 @@ function renderHighScores() {
     var participantInitial = localStorage.key(i);
     var participantScore = localStorage.getItem(localStorage.key(i));
     var hsLi = document.createElement("li");
-    hsLi.innerHTML = participantInitial + " - " + participantScore;
+    hsLi.innerHTML =
+      i + 1 + ". " + participantInitial + " - " + participantScore;
     highscoresList.append(hsLi);
   }
 }
+function clearScores() {
+  localStorage.clear();
+  renderHighScores();
+}
 
+function goBack() {
+  highscores.style.display = "none";
+  intro.style.display = "block";
+}
 // Event Listeners
 startButton.addEventListener("click", startQuiz);
 questionAnswers.addEventListener("click", checkAnswer);
 formSubmit.addEventListener("click", submitScore);
 view.addEventListener("click", renderHighScores);
+clear.addEventListener("click", clearScores);
+back.addEventListener("click", goBack);
