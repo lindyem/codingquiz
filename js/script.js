@@ -7,9 +7,10 @@ var questionTitle = document.querySelector("#questionTitle");
 var questionAnswers = document.querySelector("#questionAnswers");
 var questionStatus = document.querySelector("#questionStatus");
 var score = document.querySelector("#score");
+var formInput = document.querySelector("#formInput");
+var formSubmit = document.querySelector("#formSubmit");
 var countdown = 75;
 var questionIndex = 0;
-var points = 0;
 var countdownInterval;
 
 var questions = [
@@ -87,22 +88,32 @@ function checkAnswer(event) {
   var answerIndex = event.target.getAttribute("data-index");
   if (questions[questionIndex].answers[answerIndex].isCorrect) {
     questionStatus.innerHTML = "Correct";
-    points++;
+    if (questionIndex + 1 <= questions.length - 1) {
+      questionIndex++;
+      renderQuestion();
+    } else {
+      end.style.display = "block";
+      question.style.display = "none";
+      clearInterval(countdownInterval);
+      score.innerHTML = countdown;
+    }
   } else {
     questionStatus.innerHTML = "Wrong";
     countdown = countdown - 10;
   }
-  if (questionIndex + 1 <= questions.length - 1) {
-    questionIndex++;
-    renderQuestion();
-  } else {
-    end.style.display = "block";
-    question.style.display = "none";
-    clearInterval(countdownInterval);
-    score.innerHTML = points;
-  }
 }
+
+function submitScore(event) {
+  var initials = formInput.value;
+
+  localStorage.setItem(initials, countdown);
+
+  renderHighScores();
+}
+
+function renderHighScores() {}
 
 // Event Listeners
 startButton.addEventListener("click", startQuiz);
 questionAnswers.addEventListener("click", checkAnswer);
+formSubmit.addEventListener("click", submitScore);
