@@ -74,7 +74,11 @@ function startQuiz() {
 function countdownTimer() {
   timer.innerHTML = countdown;
   countdown--;
-  // if countdown === 0
+  if (countdown <= 0) {
+    clearInterval(countdownInterval);
+    question.style.display = "none";
+    end.style.display = "block";
+  }
 }
 
 function renderQuestion() {
