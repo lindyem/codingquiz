@@ -1,12 +1,15 @@
 var intro = document.querySelector("#intro");
+var end = document.querySelector("#end");
 var startButton = document.querySelector("#startButton");
 var timer = document.querySelector("#timer");
+var question = document.querySelector("#question");
 var questionTitle = document.querySelector("#questionTitle");
 var questionAnswers = document.querySelector("#questionAnswers");
 var questionStatus = document.querySelector("#questionStatus");
 var countdown = 75;
 var questionIndex = 0;
 var points = 0;
+var countdownInterval;
 
 var questions = [
   {
@@ -54,7 +57,7 @@ var questions = [
 
 function startQuiz() {
   intro.style.display = "none";
-  setInterval(countdownTimer, 1000);
+  countdownInterval = setInterval(countdownTimer, 1000);
   renderQuestion();
 }
 
@@ -88,9 +91,14 @@ function checkAnswer(event) {
     questionStatus.innerHTML = "Wrong";
     countdown = countdown - 10;
   }
-
-  questionIndex++;
-  renderQuestion();
+  if (questionIndex + 1 <= questions.length - 1) {
+    questionIndex++;
+    renderQuestion();
+  } else {
+    end.style.display = "block";
+    question.style.display = "none";
+    clearInterval(countdownInterval);
+  }
 }
 
 // Event Listeners

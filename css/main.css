@@ -1,20 +1,28 @@
-header{
-    display: flex;
-    justify-content: space-between;
+header {
+  display: flex;
+  justify-content: space-between;
 }
-#intro{
-    text-align: center;
-    margin-left: 50px;
-    margin-right: 50px;
+
+main {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+#intro {
+  text-align: center;
+}
+
+#end {
+  display: none;
 }
 
 button {
-    background-color: purple;
-    color: white;
-    border-radius: 5px;
-    font-size: 1.5em;
+  background-color: purple;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.5em;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
