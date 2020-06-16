@@ -64,7 +64,10 @@ var questions = [
 
 function startQuiz() {
   intro.style.display = "none";
+  question.style.display = "block";
+  countdown = 75;
   countdownInterval = setInterval(countdownTimer, 1000);
+  questionIndex = 0;
   renderQuestion();
 }
 
@@ -139,6 +142,7 @@ function clearScores() {
 function goBack() {
   highscores.style.display = "none";
   intro.style.display = "block";
+  clearInterval(countdownInterval);
 }
 // Event Listeners
 startButton.addEventListener("click", startQuiz);
