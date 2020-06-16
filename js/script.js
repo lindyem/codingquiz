@@ -33,7 +33,7 @@ var questions = [
       },
       {
         text: "South Sudan",
-        isCorrect: tr,
+        isCorrect: true,
       },
     ],
   },
