@@ -9,6 +9,9 @@ var questionStatus = document.querySelector("#questionStatus");
 var score = document.querySelector("#score");
 var formInput = document.querySelector("#formInput");
 var formSubmit = document.querySelector("#formSubmit");
+var highscores = document.querySelector("#highscores");
+var view = document.querySelector("#view");
+var highscoresList = document.querySelector("#highscoresList");
 var countdown = 75;
 var questionIndex = 0;
 var countdownInterval;
@@ -105,15 +108,29 @@ function checkAnswer(event) {
 
 function submitScore(event) {
   var initials = formInput.value;
-
   localStorage.setItem(initials, countdown);
 
   renderHighScores();
 }
 
-function renderHighScores() {}
+function renderHighScores() {
+  highscores.style.display = "block";
+  end.style.display = "none";
+  question.style.display = "none";
+  intro.style.display = "none";
+  highscoresList.innerHTML = "";
+
+  for (var i = 0; i < localStorage.length; i++) {
+    var participantInitial = localStorage.key(i);
+    var participantScore = localStorage.getItem(localStorage.key(i));
+    var hsLi = document.createElement("li");
+    hsLi.innerHTML = participantInitial + " - " + participantScore;
+    highscoresList.append(hsLi);
+  }
+}
 
 // Event Listeners
 startButton.addEventListener("click", startQuiz);
 questionAnswers.addEventListener("click", checkAnswer);
 formSubmit.addEventListener("click", submitScore);
+view.addEventListener("click", renderHighScores);

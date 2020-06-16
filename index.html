@@ -7,7 +7,7 @@
   </head>
   <body>
     <header>
-      <div>View Highscores</div>
+      <div id="view">View Highscores</div>
       <div>Time: <span id="timer">0</span></div>
     </header>
     <main>
@@ -37,7 +37,12 @@
           <button id="formSubmit">Submit</button>
          </div>
       </div>
-      <div id ="Highscores"></div>
+      <div id="highscores">
+        <h1>Highscores</h1>
+        <ul id="highscoresList" ></ul>
+        <button id="back">Go back</button>
+        <button id="clear"> Clear Highscore</button>
+      </div>
     </main>
     <script src="./js/script.js"></script>
   </body>

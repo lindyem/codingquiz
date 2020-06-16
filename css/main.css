@@ -16,6 +16,10 @@ main {
   display: none;
 }
 
+#highscores {
+  display: none;
+}
+
 button {
   background-color: purple;
   color: white;
@@ -26,3 +30,4 @@ button {
 ul {
   list-style: none;
 }
+
