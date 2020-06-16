@@ -10,53 +10,42 @@ var points = 0;
 
 var questions = [
   {
-    title: "Commonly used data types do not include",
+    title:
+      "What nation qualifies as completely surrounded by another country's land and/or internal waters? ",
     answers: [
       {
-        text: "answer1",
+        text: "San Marino",
         isCorrect: true,
       },
       {
-        text: "answer2",
+        text: "Swaziland",
         isCorrect: false,
       },
     ],
   },
   {
-    title: "Second question",
+    title:
+      "What country is the newest in the world to be recognised by the UN?",
     answers: [
       {
-        text: "answer1",
-        isCorrect: true,
+        text: "Palestine",
+        isCorrect: false,
       },
       {
-        text: "answer2",
-        isCorrect: false,
+        text: "South Sudan",
+        isCorrect: tr,
       },
     ],
   },
   {
-    title: "Third question",
+    title: "What is the smallest country in the world?",
     answers: [
       {
-        text: "answer1",
+        text: "Vatican City",
         isCorrect: true,
       },
       {
-        text: "answer2",
-        isCorrect: false,
-      },
-    ],
-  },
-  {
-    title: "Fourth question",
-    answers: [
-      {
-        text: "answer1",
-        isCorrect: true,
-      },
-      {
-        text: "answer2",
+        text: "Tuvalu",
         isCorrect: false,
       },
     ],
